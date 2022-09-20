@@ -24,6 +24,7 @@ struct ContentView: View {
                         }
                         .navigationTitle(Text("Categories"))
                     }
+                    .navigationViewStyle(.stack)
             }
         }.onAppear(perform: viewModel.getcategories)
     }
