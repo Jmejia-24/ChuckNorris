@@ -13,24 +13,38 @@ class CategorieListViewModel: ObservableObject {
     private let store: CategorieListStore
     private(set) var categories = [String]()
     private var cancellables = Set<AnyCancellable>()
-    @Published private(set) var state: CategorieStates = .loading
+    @Published private(set) var state: States = .loading
     
     init(store: CategorieListStore = APIManager()) {
         self.store = store
     }
     
-    func getcategories() {
+    func getCategories() {
         let cancellable  = store.readCategorieList()
-            .sink { result in
+            .sink { [unowned self] result in
                 switch result {
                     case .finished:
-                        self.state = .success(content: self.categories)
+                        state = .success(content: categories)
                     case .failure(let error):
-                        self.state = .failed(error: error)
+                        state = .failed(error: error)
                 }
-            } receiveValue: { response in
-                self.categories = response
+            } receiveValue: { [unowned self] response in
+                categories = response
             }
         self.cancellables.insert(cancellable)
+    }
+}
+
+final class CategorieListCoordinator {
+    public static func start() -> ContentView {
+        let contentView = ContentView()
+        return contentView
+    }
+}
+
+final class ChuckJokeCoordinator {
+    public static func start(with categorie: String) -> ChuckJokeView {
+        let chuckJokeView = ChuckJokeView(viewModel: ChuckJokeViewModel(categorie: categorie))
+        return chuckJokeView
     }
 }

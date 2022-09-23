@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var viewModel = CategorieListViewModel()
+    @ObservedObject var viewModel = CategorieListViewModel()
     
     var body: some View {
         Group {
@@ -16,17 +16,19 @@ struct ContentView: View {
                 case .loading:
                     ProgressView()
                 case .failed(let error):
-                    ErrorView(error: error, handler: viewModel.getcategories)
-                case .success(let categories):
+                    ErrorView(error: error, handler: viewModel.getCategories)
+                case .success:
                     NavigationView {
-                        List(categories, id: \.self) { item in
-                            Text(item.capitalized)
+                        List(viewModel.categories, id: \.self) { categorie in
+                            NavigationLink(destination: ChuckJokeCoordinator.start(with: categorie)) {
+                                Text(categorie.capitalized)
+                            }
                         }
                         .navigationTitle(Text("Categories"))
                     }
                     .navigationViewStyle(.stack)
             }
-        }.onAppear(perform: viewModel.getcategories)
+        }.onAppear(perform: viewModel.getCategories)
     }
 }
 

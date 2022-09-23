@@ -14,8 +14,11 @@
 		305E310728D97F1500CEAC7A /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E310628D97F1500CEAC7A /* APIManager.swift */; };
 		305E310B28D9804C00CEAC7A /* Failure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E310A28D9804C00CEAC7A /* Failure.swift */; };
 		305E310D28D9811C00CEAC7A /* CategorieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 305E310C28D9811C00CEAC7A /* CategorieListViewModel.swift */; };
-		3068AAAC28DA0F3500EC174D /* CategorieStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3068AAAB28DA0F3500EC174D /* CategorieStates.swift */; };
+		3068AAAC28DA0F3500EC174D /* States.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3068AAAB28DA0F3500EC174D /* States.swift */; };
 		3068AAAE28DA12F900EC174D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3068AAAD28DA12F900EC174D /* ErrorView.swift */; };
+		3068AAB428DA205700EC174D /* ChuckJoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3068AAB328DA205700EC174D /* ChuckJoke.swift */; };
+		3068AAB628DA225900EC174D /* ChuckJokeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3068AAB528DA225900EC174D /* ChuckJokeViewModel.swift */; };
+		3068AABA28DA280100EC174D /* ChuckJokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3068AAB928DA280100EC174D /* ChuckJokeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +30,11 @@
 		305E310628D97F1500CEAC7A /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		305E310A28D9804C00CEAC7A /* Failure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Failure.swift; sourceTree = "<group>"; };
 		305E310C28D9811C00CEAC7A /* CategorieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorieListViewModel.swift; sourceTree = "<group>"; };
-		3068AAAB28DA0F3500EC174D /* CategorieStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorieStates.swift; sourceTree = "<group>"; };
+		3068AAAB28DA0F3500EC174D /* States.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = States.swift; sourceTree = "<group>"; };
 		3068AAAD28DA12F900EC174D /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		3068AAB328DA205700EC174D /* ChuckJoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckJoke.swift; sourceTree = "<group>"; };
+		3068AAB528DA225900EC174D /* ChuckJokeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckJokeViewModel.swift; sourceTree = "<group>"; };
+		3068AAB928DA280100EC174D /* ChuckJokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChuckJokeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,7 @@
 		305E310028D969A700CEAC7A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				3068AAAF28DA1F7C00EC174D /* Joke */,
 				305E310428D96A6200CEAC7A /* CategorieList */,
 			);
 			path = App;
@@ -103,17 +110,9 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		305E310328D96A4300CEAC7A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		305E310428D96A6200CEAC7A /* CategorieList */ = {
 			isa = PBXGroup;
 			children = (
-				305E310328D96A4300CEAC7A /* Model */,
 				305E310228D96A3A00CEAC7A /* View */,
 				305E310128D96A2F00CEAC7A /* ViewModel */,
 			);
@@ -149,9 +148,43 @@
 		3068AAAA28DA0F1800EC174D /* States */ = {
 			isa = PBXGroup;
 			children = (
-				3068AAAB28DA0F3500EC174D /* CategorieStates.swift */,
+				3068AAAB28DA0F3500EC174D /* States.swift */,
 			);
 			path = States;
+			sourceTree = "<group>";
+		};
+		3068AAAF28DA1F7C00EC174D /* Joke */ = {
+			isa = PBXGroup;
+			children = (
+				3068AAB228DA1FAC00EC174D /* Model */,
+				3068AAB128DA1FA500EC174D /* View */,
+				3068AAB028DA1F9500EC174D /* ViewModel */,
+			);
+			path = Joke;
+			sourceTree = "<group>";
+		};
+		3068AAB028DA1F9500EC174D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3068AAB528DA225900EC174D /* ChuckJokeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		3068AAB128DA1FA500EC174D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3068AAB928DA280100EC174D /* ChuckJokeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3068AAB228DA1FAC00EC174D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3068AAB328DA205700EC174D /* ChuckJoke.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,10 +258,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				305E310B28D9804C00CEAC7A /* Failure.swift in Sources */,
+				3068AAB628DA225900EC174D /* ChuckJokeViewModel.swift in Sources */,
 				305E310728D97F1500CEAC7A /* APIManager.swift in Sources */,
-				3068AAAC28DA0F3500EC174D /* CategorieStates.swift in Sources */,
+				3068AABA28DA280100EC174D /* ChuckJokeView.swift in Sources */,
+				3068AAAC28DA0F3500EC174D /* States.swift in Sources */,
 				305E30F528D967FD00CEAC7A /* ContentView.swift in Sources */,
 				3068AAAE28DA12F900EC174D /* ErrorView.swift in Sources */,
+				3068AAB428DA205700EC174D /* ChuckJoke.swift in Sources */,
 				305E310D28D9811C00CEAC7A /* CategorieListViewModel.swift in Sources */,
 				305E30F328D967FD00CEAC7A /* ChuckNorrisApp.swift in Sources */,
 			);

@@ -11,7 +11,7 @@ import SwiftUI
 struct ChuckNorrisApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CategorieListCoordinator.start()
         }
     }
 }
